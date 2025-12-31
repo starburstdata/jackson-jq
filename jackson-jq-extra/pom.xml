@@ -6,14 +6,14 @@
 	<packaging>bundle</packaging>
 
 	<parent>
-		<groupId>net.thisptr</groupId>
+		<groupId>com.starburstdata</groupId>
 		<artifactId>jackson-jq-parent</artifactId>
 		<version>1.6.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>net.thisptr</groupId>
+			<groupId>com.starburstdata</groupId>
 			<artifactId>jackson-jq</artifactId>
 			<version>1.6.0</version>
 		</dependency>
