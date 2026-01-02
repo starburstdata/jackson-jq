@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        java-version: ['8', '24']
+    name: "Build with JDK ${{ matrix.java-version }}"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: temurin
+
+      - name: Download jq binaries
+        run: |
+          mkdir -p $HOME/bin
+          wget -q -O $HOME/bin/jq-1.5 https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
+          wget -q -O $HOME/bin/jq-1.6 https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+          wget -q -O $HOME/bin/jq-1.7 https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64
+          chmod +x $HOME/bin/jq-1.5 $HOME/bin/jq-1.6 $HOME/bin/jq-1.7
+
+      - name: Build and test
+        run: PATH="$HOME/bin:$PATH" mvn clean verify
