@@ -6,16 +6,16 @@
 	<packaging>jar</packaging>
 
 	<parent>
-		<groupId>net.thisptr</groupId>
+		<groupId>com.starburstdata</groupId>
 		<artifactId>jackson-jq-parent</artifactId>
-		<version>1.6.0</version>
+		<version>1.6.0-air-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>net.thisptr</groupId>
+			<groupId>com.starburstdata</groupId>
 			<artifactId>jackson-jq-extra</artifactId>
-			<version>1.6.0</version>
+			<version>1.6.0-air-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-cli</groupId>

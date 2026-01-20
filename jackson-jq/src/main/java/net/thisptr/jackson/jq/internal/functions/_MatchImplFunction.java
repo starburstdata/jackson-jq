@@ -4,9 +4,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.joni.Matcher;
-import org.joni.Option;
-import org.joni.Region;
+import io.airlift.joni.Matcher;
+import io.airlift.joni.Option;
+import io.airlift.joni.Region;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -98,12 +98,12 @@ public class _MatchImplFunction implements Function {
 				// 2. for zero-width match, we do not include captures
 				final Region regions = m.getRegion();
 				if (regions != null && m.getEnd() != m.getBegin()) {
-					for (int i = 1; i < regions.getNumRegs(); ++i) {
+					for (int i = 1; i < regions.numRegs; ++i) {
 						final CaptureObject capture = new CaptureObject();
-						if (regions.getBeg(i) >= 0) {
-							capture.offset = cindex[regions.getBeg(i)];
-							capture.length = cindex[regions.getEnd(i)] - cindex[regions.getBeg(i)];
-							capture.string = new String(ibytes, regions.getBeg(i), regions.getEnd(i) - regions.getBeg(i), StandardCharsets.UTF_8);
+						if (regions.beg[i] >= 0) {
+							capture.offset = cindex[regions.beg[i]];
+							capture.length = cindex[regions.end[i]] - cindex[regions.beg[i]];
+							capture.string = new String(ibytes, regions.beg[i], regions.end[i] - regions.beg[i], StandardCharsets.UTF_8);
 						} else {
 							capture.offset = -1;
 							capture.length = 0;

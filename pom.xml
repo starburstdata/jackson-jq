@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>net.thisptr</groupId>
+	<groupId>com.starburstdata</groupId>
 	<artifactId>jackson-jq-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>1.6.0</version>
+	<version>1.6.0-air-SNAPSHOT</version>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>jq for Jackson JSON Processor</description>
-	<url>https://github.com/eiiches/jackson-jq</url>
+	<url>https://github.com/starburstdata/jackson-jq</url>
 
 	<licenses>
 		<license>
@@ -25,10 +25,10 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com:eiiches/jackson-jq.git</connection>
-		<developerConnection>scm:git:git@github.com:eiiches/jackson-jq.git</developerConnection>
-		<url>git@github.com:eiiches/jackson-jq.git</url>
-		<tag>1.6.0</tag>
+		<connection>scm:git:git@github.com:starburstdata/jackson-jq.git</connection>
+		<developerConnection>scm:git:git@github.com:starburstdata/jackson-jq.git</developerConnection>
+		<url>git@github.com:starburstdata/jackson-jq.git</url>
+		<tag>HEAD</tag>
 	</scm>
 
 	<modules>
@@ -38,10 +38,10 @@
 	</modules>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>central</id>
-			<url>https://central.sonatype.com/repository/maven-snapshots</url>
-		</snapshotRepository>
+		<repository>
+			<id>starburst-domain-releases</id>
+			<url>https://starburst-domain-843985043183.d.codeartifact.us-east-1.amazonaws.com/maven/releases/</url>
+		</repository>
 	</distributionManagement>
 
 	<properties>
@@ -142,6 +142,7 @@
 				<configuration>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<pushChanges>false</pushChanges>
+					<tagNameFormat>@{project.version}</tagNameFormat>
 				</configuration>
 			</plugin>
 			<plugin>

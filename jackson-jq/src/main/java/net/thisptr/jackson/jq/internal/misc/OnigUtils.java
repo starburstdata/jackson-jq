@@ -3,11 +3,11 @@ package net.thisptr.jackson.jq.internal.misc;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
-import org.jcodings.specific.UTF8Encoding;
-import org.joni.NameEntry;
-import org.joni.Option;
-import org.joni.Regex;
-import org.joni.Syntax;
+import io.airlift.jcodings.specific.UTF8Encoding;
+import io.airlift.joni.NameEntry;
+import io.airlift.joni.Option;
+import io.airlift.joni.Regex;
+import io.airlift.joni.Syntax;
 
 import net.thisptr.jackson.jq.exception.JsonQueryException;
 

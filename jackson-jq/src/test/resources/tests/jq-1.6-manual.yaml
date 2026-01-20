@@ -756,6 +756,7 @@
   out:
   - "less"
   v: '[1.6, 1.6]'
+  failing: true
 - q: 'env.PAGER'
   in: null
   out:
